@@ -1,2 +1,6 @@
 .venv-ig/
+node_modules/
+.next/
+out/
 assets/videos/*.mp4
+public/assets/videos/*.mp4
