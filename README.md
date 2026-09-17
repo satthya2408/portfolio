@@ -11,12 +11,36 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-Production build:
+Static production build (used on Render):
 
 ```bash
 npm run build
-npm start
 ```
+
+Output is in **`out/`**. Preview locally:
+
+```bash
+npx serve out
+```
+
+## Deploy on Render (Static Site)
+
+1. Push this repo to GitHub (repo root = folder with `package.json`).
+2. Render → **New** → **Static Site** → connect the repo.
+3. Settings:
+
+| Field | Value |
+|--------|--------|
+| **Root Directory** | blank, or `portfolio` if the app is in a subfolder |
+| **Build Command** | `npm install && npm run build` |
+| **Publish Directory** | `out` |
+
+4. **Environment** → add `NODE_VERSION` = `20` (optional but recommended).
+5. Deploy. Your site is served from the `out` folder.
+
+Or use the included **`render.yaml`**: **New** → **Blueprint** → select the repo (Render reads build command and `staticPublishPath: ./out`).
+
+**Note:** `npm start` / Node Web Service is not used — the app is fully static (`output: "export"` in `next.config.ts`).
 
 ## Edit content
 

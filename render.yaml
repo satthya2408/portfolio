@@ -1,0 +1,10 @@
+# Render Static Site — https://render.com/docs/static-sites
+services:
+  - type: web
+    name: satthya-portfolio
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./out
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
